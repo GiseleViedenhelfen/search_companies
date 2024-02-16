@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  database:
+    image: mysql
+    container_name: mail_database
+    command: ["mysqld", "--datadir=/db/db_config", "--port=${DB_PORT}"]
+    environment:
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOTPASS}
+      - MYSQL_PORT=${DB_PORT}
+      - MYSQL_DATABASE=${DBNAME}
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    container_name: mail_app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - database
+    command: air -c air.toml
