@@ -11,9 +11,7 @@ services:
       - MYSQL_PORT=${DB_PORT}
       - MYSQL_DATABASE=${DBNAME}
   web:
-    build:
-      dockerfile: Dockerfile
-      context: ./
+    build: .
     container_name: mail_app
     ports:
       - "3000:3000"
@@ -24,3 +22,4 @@ services:
     depends_on:
       - database
     command: air -c air.toml
+

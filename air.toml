@@ -5,7 +5,7 @@ root = "."
 
 [build]
 # Just plain old shell command. You could use `make` as well.
-cmd = "go build -o ./tmp/main ./cmd/"
+cmd = "go build -o ./tmp/main ./cmd/main.go"
 # Binary file yields from `cmd`.
 bin = "tmp/main"
 # Customize binary, can setup environment variables when running your app.
@@ -36,7 +36,6 @@ send_interrupt = false
 kill_delay = 500 # ms
 # Add additional arguments when running binary (bin/full_bin). Will run './tmp/main hello world'.
 args_bin = ["hello", "world"]
-
 [log]
 # Show log time
 time = false
