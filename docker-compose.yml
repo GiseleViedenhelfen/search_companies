@@ -3,7 +3,7 @@ services:
   database:
     image: mysql
     container_name: mail_database
-    command: ["mysqld", "--datadir=/db/db_config", "--port=${DB_PORT}"]
+    command: ["mysqld", "--datadir=pkg/api/db", "--port=${DB_PORT}"]
     environment:
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASSWORD}
