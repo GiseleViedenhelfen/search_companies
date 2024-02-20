@@ -3,7 +3,7 @@ package models
 import (
 	"fmt"
 
-	"github.com/GiseleViedenhelfen/search_companies/pkg/api/db"
+	"github.com/GiseleViedenhelfen/search_companies/pkg/db"
 )
 
 func Insert(company Company) (id int64, err error) {

@@ -3,7 +3,7 @@ package routes
 import (
 	"net/http"
 
-	"github.com/GiseleViedenhelfen/search_companies/pkg/api/handlers"
+	"github.com/GiseleViedenhelfen/search_companies/pkg/handlers"
 )
 
 func handleRoot(w http.ResponseWriter, r *http.Request) {

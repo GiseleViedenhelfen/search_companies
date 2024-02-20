@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	db "github.com/GiseleViedenhelfen/search_companies/pkg/api/db"
+	db "github.com/GiseleViedenhelfen/search_companies/pkg/db"
 	"github.com/joho/godotenv"
 )
 

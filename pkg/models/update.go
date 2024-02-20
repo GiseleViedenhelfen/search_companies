@@ -3,7 +3,7 @@ package models
 import (
 	"fmt"
 
-	"github.com/GiseleViedenhelfen/search_companies/pkg/api/db"
+	"github.com/GiseleViedenhelfen/search_companies/pkg/db"
 )
 
 func UpdateMailSent(id int64) (int64, error) {

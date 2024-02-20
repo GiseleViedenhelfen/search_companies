@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/GiseleViedenhelfen/search_companies/pkg/api/models"
+	"github.com/GiseleViedenhelfen/search_companies/pkg/models"
 )
 
 func List(w http.ResponseWriter, r *http.Request) {

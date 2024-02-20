@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/GiseleViedenhelfen/search_companies/pkg/api/db"
+	"github.com/GiseleViedenhelfen/search_companies/pkg/db"
 )
 
 func NotSentList() (companies []Company, err error) {

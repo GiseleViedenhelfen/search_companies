@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/GiseleViedenhelfen/search_companies/pkg/api/models"
+	"github.com/GiseleViedenhelfen/search_companies/pkg/models"
 )
 
 func UpdateMailSent(w http.ResponseWriter, r *http.Request) {
