@@ -4,6 +4,8 @@ import { Browser, Page } from "puppeteer";
 
 export interface Company {
   cnpj: string;
+  subscribed: number,
+  mails_sent: number,
   corporate_name: string;
   registered_capital: string;
   legal_form: string;

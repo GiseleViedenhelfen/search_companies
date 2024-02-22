@@ -11,6 +11,8 @@ export function objectFormatter(arr: string[][]): Company {
     legal_form: "",
     phone: "",
     mail: "",
+    subscribed: 1,
+    mails_sent: 0,
     main_activity: "",
   };
   arr.forEach((item) => {
