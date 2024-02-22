@@ -8,6 +8,6 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist" 
   },
-  "include": ["./funcs/*.ts", "consts.ts"],
+  "include": ["search_urls/*.ts","urls/*ts", "consts.ts", "helpers.ts", "index.ts"],
   "exclude": ["./node_modules", "package-lock.json"]
 }
