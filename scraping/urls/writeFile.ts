@@ -2,17 +2,20 @@ import { Page } from "puppeteer";
 import extractCompanyData from "./extractData";
 import fs from "fs";
 import { Company } from "../helpers";
+import path from "path";
 import { filePath } from "../consts";
 
-if (fs.existsSync(filePath)) {
-  fs.unlinkSync(filePath);
+const file = path.resolve(__dirname, filePath);
+console.log(file)
+if (fs.existsSync(file)) {
+  fs.unlinkSync(file);
   console.log('Existing companyData.json file deleted');
 }
 export default async function (page: Page) {
   const data = await extractCompanyData(page);
   if (data) {
-    if (fs.existsSync(filePath)) {
-      const existingData = fs.readFileSync(filePath, "utf-8");
+    if (fs.existsSync(file)) {
+      const existingData = fs.readFileSync(file, "utf-8");
 
       let jsonData: Company[] = [];
 
@@ -27,9 +30,9 @@ export default async function (page: Page) {
       const updatedData = JSON.stringify(jsonData, null, 2);
       console.log("New data added to data.json");
 
-      fs.writeFileSync(filePath, updatedData);
+      fs.writeFileSync(file, updatedData);
     } else {
-      fs.writeFileSync(filePath, JSON.stringify([data], null, 2));
+      fs.writeFileSync(file, JSON.stringify([data], null, 2));
       console.log("New data.json file created");
     }
   }
