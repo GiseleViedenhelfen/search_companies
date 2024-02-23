@@ -21,8 +21,9 @@ export async function connect(): Promise<Page> {
   puppeteer.use(StealthPlugin());
 
   const browser: Browser = await puppeteer.launch({
-    headless: false,
-    executablePath: puppeteer.executablePath(),
+    headless: true,
+    executablePath: 'google-chrome-stable', 
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
   const page: Page = await browser.newPage();
