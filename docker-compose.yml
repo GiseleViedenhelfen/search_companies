@@ -1,12 +1,15 @@
 version: '3.8'
 services:
-  scraping:
+  data:
     build:
       context: ./scraping
       dockerfile: Dockerfile
-    container_name: scraping
+    container_name: data
     volumes:
       - .:/usr/src/app
+      - data:/usr/src/app/data
+    # depends_on:
+    #   - web
   database:
     image: mysql
     container_name: mail_database
@@ -18,7 +21,7 @@ services:
       - MYSQL_PORT=${DB_PORT}
       - MYSQL_DATABASE=${DBNAME}
     depends_on:
-      - scraping
+      - data
   web:
     build: .
     container_name: mail_app
@@ -28,7 +31,10 @@ services:
       - .env
     volumes:
       - .:/usr/src/app
+      - data:/usr/src/app/data
     depends_on:
       - database
     command: air -c air.toml
 
+volumes:
+  data:
