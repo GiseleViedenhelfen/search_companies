@@ -17,7 +17,7 @@ func Reader()(companies []models.Company, err error) {
 		return nil, err
 }
 
-	filePath := filepath.Join(dir, "data.json")
+	filePath := filepath.Join(dir, "/data/data.json")
 	data, err := os.ReadFile(filePath)
 	fmt.Println(filePath)
 	if err != nil {
