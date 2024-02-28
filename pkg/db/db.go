@@ -9,7 +9,7 @@ import (
 )
 func CreateInitDB() (err error) {
 	dns := fmt.Sprintf(
-		"root:%s@tcp(mail_database:%s)/", os.Getenv("DB_ROOTPASS"),
+		"root:%s@tcp(scraping_database:%s)/", os.Getenv("DB_ROOTPASS"),
 		os.Getenv("DB_PORT"),
 	)
 	conn, err := sql.Open("mysql", dns)
@@ -51,7 +51,7 @@ func execQueries(query string, conn *sql.DB) (err error) {
 }
 func OpenConnection() (conn *sql.DB, err error) {
 	dns := fmt.Sprintf(
-		"%s:%s@tcp(mail_database:%s)/%s", os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"),
+		"%s:%s@tcp(scraping_database:%s)/%s", os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_PORT"), os.Getenv("DB_NAME"),
 	)
 	conn, err = sql.Open("mysql", dns)
