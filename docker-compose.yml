@@ -21,10 +21,12 @@ services:
     depends_on:
       - data
   api:
-    build: .
+    build:
+      context: ./api
+      dockerfile: Dockerfile
     container_name: scraping_api
     ports:
-      - "3000:3000"
+      - ${PORT}:${PORT}
     env_file:
       - .env
     volumes:
