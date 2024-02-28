@@ -9,7 +9,7 @@ const file = path.resolve(__dirname, filePath);
 console.log(file)
 if (fs.existsSync(file)) {
   fs.unlinkSync(file);
-  console.log('Existing companyData.json file deleted');
+  console.log('Existing data.json file deleted');
 }
 export default async function (page: Page) {
   const data = await extractCompanyData(page);
