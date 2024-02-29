@@ -1,5 +1,5 @@
 import { Page } from "puppeteer";
-import { inputs, mei, email, successButton, lenButton } from "../consts";
+import { inputs, mei, email, successButton, date } from "../consts";
 import { getListLength, btnSwitch, setInputValues} from "../functions/form";
 import { delay } from "../helpers";
 export default async function (page: Page): Promise<number>{
@@ -7,6 +7,8 @@ export default async function (page: Page): Promise<number>{
     await setInputValues(page, input);
     await delay(2000);
   }
+  await page.type(date.tag, date.value);
+  await page.keyboard.press("Enter");
   btnSwitch(page, mei);
 
   const setEmailField = await page.$$(email);
@@ -19,7 +21,7 @@ export default async function (page: Page): Promise<number>{
   await setEmailField[2].click();
   btnSwitch(page, successButton);
   await delay(5000);
-  const list = await getListLength(page, lenButton)
+  const list = await getListLength(page)
   return list;
 }
 

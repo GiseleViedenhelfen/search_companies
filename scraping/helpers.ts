@@ -34,7 +34,7 @@ export function getDate(): string {
   const yesterdayDate: Date = new Date(currentDate);
   yesterdayDate.setDate(currentDate.getDate() - 1);
 
-  const year: number = yesterdayDate.getFullYear() + 1;
+  const year: number = yesterdayDate.getFullYear();
   const month: number = yesterdayDate.getMonth() + 1;
   const day: number = yesterdayDate.getDate();
 

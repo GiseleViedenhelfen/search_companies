@@ -10,12 +10,13 @@ export const inputs = {
   city: {
     tag: 'input.input.is-normal[placeholder="Selecione um município"]',
     value: 'Porto Alegre'
-  },
-  date: {
-    tag: 'input.input[placeholder="A partir de"]',
-    value: getDate()
   }
 }
+export const date = {
+  tag: 'input.input[placeholder="A partir de"]',
+  value: getDate()
+}
+export const noResultsTag = ".has-text-weight-bold"
 export const keys = ['CNPJ', 'Razão Social', 'Natureza Jurídica', 'Capital Social', 'E-MAIL', 'Telefone', 'Atividade Principal'];
 export const mei = 'span.check.is-default'
 export const email = 'span.check.is-warning';
