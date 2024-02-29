@@ -1,7 +1,6 @@
 /tmp
 .env
 go.sum
-/scraping/node_modules
-/scraping/package-lock.json
-/scraping/dist
-data.json
+node_modules
+package-lock.json
+dist
