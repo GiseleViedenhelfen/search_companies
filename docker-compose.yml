@@ -25,16 +25,25 @@ services:
       context: ./api
       dockerfile: Dockerfile
     container_name: scraping_api
+    env_file:
+      - ./api/.env
     ports:
       - ${PORT}:${PORT}
-    env_file:
-      - .env
     volumes:
       - .:/usr/src/app
       - data:/usr/src/app/data
     depends_on:
       - database
-    command: air -c air.toml
-
+  nodemailer:
+    build: 
+      context: ./mailer
+      dockerfile: Dockerfile
+    container_name: nodemailer
+    volumes:
+      - .:/usr/src/app/mailer
+    env_file:
+      - ./mailer/.env
+    depends_on:
+      - api
 volumes:
   data:
