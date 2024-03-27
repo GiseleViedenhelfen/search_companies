@@ -1,5 +1,5 @@
 import { getDate } from "./helpers";
-export const filePath = "../../data.json";
+export const filePath = "../../../data.json";
 export const page_url = "https://casadosdados.com.br"
 export const root = page_url + "/solucao/cnpj/pesquisa-avancada"
 export const inputs = {

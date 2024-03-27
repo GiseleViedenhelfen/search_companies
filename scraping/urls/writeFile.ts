@@ -6,7 +6,6 @@ import path from "path";
 import { filePath } from "../consts";
 
 const file = path.resolve(__dirname, filePath);
-console.log(file)
 if (fs.existsSync(file)) {
   fs.unlinkSync(file);
   console.log('Existing data.json file deleted');

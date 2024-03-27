@@ -2,7 +2,6 @@ package jsonreader
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -17,9 +16,9 @@ func Reader()(companies []models.Company, err error) {
 		return nil, err
 }
 
-	filePath := filepath.Join(dir, "../data/data.json")
+	filePath := filepath.Join(dir, "../data.json")
+
 	data, err := os.ReadFile(filePath)
-	fmt.Println(filePath)
 	if err != nil {
 		log.Fatalf("Error reading file: %v", err)
 		return
