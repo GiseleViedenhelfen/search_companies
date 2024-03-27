@@ -1,6 +1,6 @@
 import { configDotenv } from "dotenv";
 import path from "path";
-const file = path.resolve(__dirname, "../../img/logo.png");
+const file = path.resolve(__dirname, "../img/logo.png");
 configDotenv;
 const { SENDER, SENDER_PASS, HOST } = process.env;
 export const transporterConfig = {
