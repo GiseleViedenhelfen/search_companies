@@ -5,11 +5,13 @@ import (
 	"fmt"
 	"log"
 	"os"
+
 	_ "github.com/go-sql-driver/mysql"
 )
+
 func CreateInitDB() (err error) {
 	dns := fmt.Sprintf(
-		"root:%s@tcp(scraping_database:%s)/", os.Getenv("DB_ROOTPASS"),
+		"root:%s@tcp(172.17.0.2:%s)/", os.Getenv("DB_ROOTPASS"),
 		os.Getenv("DB_PORT"),
 	)
 	conn, err := sql.Open("mysql", dns)
@@ -36,7 +38,7 @@ func CreateInitDB() (err error) {
 	}
 	for _, v := range queries {
 		execQueries(v, conn)
-		
+
 	}
 	return
 }
@@ -50,8 +52,9 @@ func execQueries(query string, conn *sql.DB) (err error) {
 	return
 }
 func OpenConnection() (conn *sql.DB, err error) {
+
 	dns := fmt.Sprintf(
-		"%s:%s@tcp(scraping_database:%s)/%s", os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"),
+		"%s:%s@tcp(172.17.0.2:%s)/%s", os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_PORT"), os.Getenv("DB_NAME"),
 	)
 	conn, err = sql.Open("mysql", dns)

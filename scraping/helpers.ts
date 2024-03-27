@@ -21,7 +21,7 @@ export async function connect(): Promise<Page> {
   puppeteer.use(StealthPlugin());
 
   const browser: Browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     executablePath: 'google-chrome-stable', 
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
@@ -32,7 +32,7 @@ export async function connect(): Promise<Page> {
 export function getDate(): string {
   const currentDate: Date = new Date();
   const yesterdayDate: Date = new Date(currentDate);
-  yesterdayDate.setDate(currentDate.getDate() - 1);
+  yesterdayDate.setDate(currentDate.getDate());
 
   const year: number = yesterdayDate.getFullYear();
   const month: number = yesterdayDate.getMonth() + 1;
