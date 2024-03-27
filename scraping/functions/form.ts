@@ -1,5 +1,6 @@
 import { Page } from "puppeteer";
 import { lenButton } from "../consts";
+import { delay } from "../helpers";
 
 export const setInputValues = async (
   frame: Page,
@@ -12,6 +13,32 @@ export const setInputValues = async (
   await frame.keyboard.press("Enter");
   await frame.click("h1");
 };
+export const setDate = async (frame: Page,
+  input: { tag: string; value: string }) => {
+    const inputField = await frame.$(input.tag);
+    if (!inputField) {
+      console.error('Input field not found');
+      return;
+    }
+    const splitDate = input.value.split('-')
+    for (let i = 0; i < Number(splitDate[0]); i ++) {
+      await inputField.press('ArrowUp');
+      await delay(500)
+    }
+    await inputField.press('ArrowRight');
+    for (let i = 0; i < Number(splitDate[1]); i ++) {
+      await inputField.press('ArrowUp');
+      await delay(500)
+    }
+    await inputField.press('ArrowRight');
+    await inputField.press("ArrowDown");
+    // await delay(1000)
+    await frame.keyboard.press("Enter");
+    await frame.click("h1");
+    // await frame.keyboard.press('ArrowDown');
+    await delay(1000)
+
+}
 export const btnSwitch = async (frame: Page, tag: string) => {
   const click = await frame.$(tag);
   if (!click) {
