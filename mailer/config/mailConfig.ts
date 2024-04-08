@@ -2,7 +2,8 @@ import { configDotenv } from "dotenv";
 import path from "path";
 const file = path.resolve(__dirname, "../img/logo.png");
 configDotenv;
-const { SENDER, SENDER_PASS, HOST } = process.env;
+const { SENDER, SENDER_PASS } = process.env;
+const HOST = "smtp.gmail.com"
 export const transporterConfig = {
   host: HOST,
   port: 465,
