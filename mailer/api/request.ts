@@ -1,8 +1,8 @@
 import axios from "axios";
 import { configDotenv } from "dotenv";
-configDotenv
+configDotenv()
 const { PORT } = process.env;
-const URL = `http://api:${PORT}`
+const URL = `http://localhost:${PORT}`
 export interface Company {
   id: number;
   mail: string;
