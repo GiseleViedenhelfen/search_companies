@@ -6,7 +6,7 @@ This application was built using TypeScript and Node.js for scraping and sending
 ## How to run
 The API and Mailer service directories require an ".env" file to run as expected. The values can be chosen by the user, but the "port" must be the same in both files, and the email must be a Gmail one. Some example values are provided below:
 
-* For the api directory:
+For the api directory:
 - PORT=3000
 - DB_PASSWORD=PASS123
 - DB_NAME=TODO_API
@@ -14,7 +14,7 @@ The API and Mailer service directories require an ".env" file to run as expected
 - DB_PORT=3307
 - DB_USER=USER
 
-* For the mailer directory:
+For the mailer directory:
 - SENDER=your_name@gmail.com
 - SENDER_PASS= yourGmailPassword
 - PORT=3000
